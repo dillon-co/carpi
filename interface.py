@@ -63,8 +63,9 @@ from pygame import mixer
 
 root = tk.ThemedTk()
 root.get_themes()                 # Returns a list of all themes that can be set
-root.set_theme("radiance")         # Sets an available theme
+root.set_theme("equilux")         # Sets an available theme
 root.geometry('800x400')
+root.configure(background='black')
 # Fonts - Arial (corresponds to Helvetica), Courier New (Courier), Comic Sans MS, Fixedsys,
 # MS Sans Serif, MS Serif, Symbol, System, Times New Roman (Times), and Verdana
 #
@@ -120,7 +121,6 @@ subMenu.add_command(label="About Us", command=about_us)
 mixer.init()  # initializing the mixer
 
 root.title("Melody")
-root.iconbitmap(r'images/melody.ico')
 
 # Root Window - StatusBar, LeftFrame, RightFrame
 # LeftFrame - The listbox (playlist)
@@ -302,6 +302,9 @@ def on_closing():
     stop_music()
     root.destroy()
 
+leftframe.configure(background="#212121")
+rightframe.configure(background="#212121")
+# middleframe.config(background="#222831")
 
 root.protocol("WM_DELETE_WINDOW", on_closing)
 root.mainloop()
